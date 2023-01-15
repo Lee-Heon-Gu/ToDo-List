@@ -6,6 +6,7 @@ let modifyBtn = document.querySelector('.modify');
 let removeSelected = document.getElementById('remove-selected');
 let inputBox = document.getElementById('input-box');
 let checkBox = document.querySelector('.chk');
+let chkList = document.getElementsByClassName('chk');
 let todoList = document.getElementById('todo-list');
 inputBox.focus();
 
@@ -61,7 +62,6 @@ function addTodo() {
 
 removeSelected.addEventListener('click', function () {
     alert('선택삭제!');
-    let chkList = document.getElementsByClassName('chk');
     for (let i = (chkList.length - 1); i >= 0; i--)
     {
         if (chkList[i].checked === true)
@@ -127,11 +127,11 @@ function completeTodo(event) {
 
 // 브라우저 종료 전에 저장
 window.addEventListener('beforeunload', function () {
-    let dataSave = new Array(0);
+    let dataSave = new Array();
     let liList = todoList.children;
     for (let i = 0; i < liList.length; i++)
     {
-        dataSave.push(liList[i].dataset.text);
+        dataSave.push({text: liList[i].dataset.text, check: chkList[i].checked});
     }
     let stringArr = JSON.stringify(dataSave);
     localStorage.setItem('todo', stringArr);
@@ -145,8 +145,13 @@ function getTodo() {
         todoList.firstElementChild.remove();
         for (let i = 0; i < dataSave.length; i++)
         {
-            inputBox.value = dataSave[i];
+            inputBox.value = dataSave[i].text;
             addTodo();
+            chkList[i].checked = dataSave[i].check;
+            if (chkList[i].checked === true)
+            {
+                chkList[i].parentNode.nextElementSibling.classList.add('complete');
+            }
         }
     }
 };

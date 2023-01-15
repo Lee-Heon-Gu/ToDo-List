@@ -213,7 +213,7 @@ form>button {
 }
 
 .checkbox input:checked + .checkbox_icon::after {
-    height: 20px;
+    height: 23px;
     transition: all 0.15s ease 0.15s;
 }
 
