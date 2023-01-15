@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
     <script src="./js/app.js" defer></script>
-    <title>ToDo-List</title>
+    <title>To Do List</title>
 </head>
 <body>
     <div id="wrap">
-        <h1>ToDo List</h1>
+        <h1>To Do List</h1>
         <form name="myForm">
             <input type="text" style="display: none;">
             <input type="text" placeholder="Add ToDo" name="myText" id="input-box">
@@ -20,8 +20,11 @@
             </button>  
         </form>
         <ul id="todo-list">
-            <li>
-                <input type="checkbox" class="chk">
+            <li data-text="공부하기">
+                <label class="checkbox">
+                    <input type="checkbox" class="chk">
+                    <span class="checkbox_icon"></span>
+                </label>
                 <span>공부하기</span>
                 <button class="modify">
                     <i class="fa-solid fa-pencil fa-2x"></i>
