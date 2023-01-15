@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'goding';
     font-weight: bold;
+    color: rgb(2, 2, 4);
 }
 
 @font-face {
@@ -11,7 +12,7 @@
 }
 
 body {
-    background-color: burlywood;
+    background-color: rgb(219, 181, 137);
 }
 
 ul {
@@ -19,18 +20,19 @@ ul {
 }
 
 button {
-    background-color: #ffffff;
+    background-color: rgb(240, 242, 148);
     border-radius: 3px;
-    border: none;
+    border: 2px solid rgb(91, 92, 72);
 }
 button:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 2px 2px gray;
+    border: none;
+    box-shadow: 0px 0px 2px 2px rgb(91, 92, 72);
 }
 
 #wrap {
     width: 500px;
-    background-color: #ffffff;
+    background-color: rgb(240, 242, 148);
     margin: 0 auto;
 }
 #wrap::after {
@@ -49,8 +51,7 @@ button:hover {
 h1 {
     width: 100%;
     height: 50px;
-    background-color: #ffffff;
-    color: blue;
+    background-color: rgb(240, 242, 148);
     text-align: center;
     font-size: 40px;
 
@@ -62,9 +63,6 @@ form {
     width: 100%;
     height: 50px;
     /* background-color: blue; */
-    /* position: relative;
-    top: 5px;
-    left: 45px; */
 
     padding-top: 8px;
     padding-left: 9%;
@@ -79,8 +77,16 @@ form>input {
     height: 40px;
     font-size: 20px;
     padding-left: 10px;
-    border: 2px solid gray;
+    border: 2px solid rgb(91, 92, 72);
 }
+input:focus {
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2px 2px rgb(91, 92, 72);
+    margin-top: 2px;
+    margin-left: 3px;
+}
+
 form>button {
     width: 44px;
     height: 44px;
@@ -90,7 +96,7 @@ form>button {
 #todo-list>li {
     width: 90%;
     height: 50px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     border-radius: 3px;
     margin-left: 25px;
 
@@ -103,7 +109,7 @@ form>button {
     display: block;
     width: 320px;
     height: 2px;
-    background-color: black;
+    background-color: rgb(91, 92, 72);
 
     position: relative;
     top: 0;
@@ -112,7 +118,6 @@ form>button {
 
 #todo-list>li>label>.checkbox_icon {
     margin-top: 14px;
-    /* margin-left: 10px; */
 }
 
 #todo-list>li>span {
@@ -138,16 +143,12 @@ form>button {
     right: 5px;
     background: none;
     border-radius: 100%;
+    border: none;
 }
 #todo-list>li>.modify {
     position: absolute;
     right: 48px;
 }
-
-/* #todo-list>li>button:hover {
-    background-color: wheat;
-    box-shadow: none;
-} */
 
 #btn-area {
     width: 100%;
@@ -175,7 +176,7 @@ form>button {
     width: 20px;
     height: 20px;
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid rgb(91, 92, 72);
     position: relative;
     cursor: pointer;
 }
@@ -226,8 +227,12 @@ form>button {
         width: 96%;
     }
 
+    form {
+        padding-left: 5%;
+    }
+
     form>input {
-        width: 80%;
+        width: 78%;
     }
 
     #todo-list>li {

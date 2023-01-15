@@ -66,7 +66,7 @@ removeSelected.addEventListener('click', function () {
     {
         if (chkList[i].checked === true)
         {
-            chkList[i].parentNode.remove();
+            chkList[i].parentNode.parentNode.remove();
         }
     }
     inputBox.focus();
