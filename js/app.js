@@ -1,4 +1,3 @@
-
 let addBtn = document.getElementById('add-btn');
 let removeAll = document.getElementById('remove-all');
 let removeBtn = document.querySelector('.remove');
@@ -74,7 +73,7 @@ removeSelected.addEventListener('click', function () {
 
 removeAll.addEventListener('click', function () {
     alert('전체삭제!');
-    let liList = document.querySelectorAll('li');
+    let liList = todoList.children;
     for (let i = 0; i <= liList.length; i++)
     {
         todoList.removeChild(todoList.lastChild);
@@ -88,10 +87,11 @@ modifyBtn.addEventListener('click', modifyText);
 function modifyText(event) {
     // alert('수정!');
     let textInput = prompt('수정할 텍스트 입력');
+    let targetSpan = event.currentTarget.previousElementSibling;
 
     if (textInput !== null)
     {
-        event.currentTarget.previousElementSibling.textContent = textInput;
+        targetSpan.textContent = textInput;
     }
 };
 
@@ -114,14 +114,15 @@ checkBox.addEventListener('click', completeTodo);
 
 function completeTodo(event) {
     console.log(event.target.checked);
+    let targetSpan = event.target.parentNode.nextElementSibling;
     if (event.target.checked === true)
     {
         alert('complete!');
-        event.target.parentNode.nextElementSibling.classList.add('complete');
+        targetSpan.classList.add('complete');
     }
     else
     {
-        event.target.parentNode.nextElementSibling.classList.remove('complete');
+        targetSpan.classList.remove('complete');
     }
 };
 
@@ -157,3 +158,16 @@ function getTodo() {
 };
 
 getTodo();
+
+function getToday() {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let dateFormat = year+"-"+month.toString().padStart(2, '0')+"-"+day.toString().padStart(2, '0');
+    
+    let div = document.getElementById('date');
+    div.textContent = dateFormat; 
+};
+
+getToday();
