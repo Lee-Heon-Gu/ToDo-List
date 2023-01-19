@@ -107,7 +107,7 @@ function removeParentNode(event) {
 inputBox.addEventListener('keyup', function (event) {
     if (event.keyCode === 13)
     {
-        alert('Enter!');
+        // alert('Enter!');
         addTodo();
     }
 });
