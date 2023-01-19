@@ -77,7 +77,7 @@ removeAll.addEventListener('click', function () {
     let len = liList.length
     for (let i = 0; i < len; i++)
     { 
-        todoList.removeChild(todoList.lastChild);  
+        todoList.removeChild(todoList.firstElementChild);
     }
    
     inputBox.focus();
@@ -146,7 +146,6 @@ function getTodo() {
     let dataSave = JSON.parse(localStorage.getItem('todo'));
     if (dataSave.length > 0)
     {
-        console.log(todoList.firstElementChild);
         todoList.firstElementChild.remove();
         for (let i = 0; i < dataSave.length; i++)
         {
