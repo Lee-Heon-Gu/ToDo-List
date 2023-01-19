@@ -74,10 +74,12 @@ removeSelected.addEventListener('click', function () {
 removeAll.addEventListener('click', function () {
     alert('전체삭제!');
     let liList = todoList.children;
-    for (let i = 0; i <= liList.length; i++)
-    {
-        todoList.removeChild(todoList.lastChild);
+    let len = liList.length
+    for (let i = 0; i < len; i++)
+    { 
+        todoList.removeChild(todoList.lastChild);  
     }
+   
     inputBox.focus();
 });
 
@@ -132,7 +134,8 @@ window.addEventListener('beforeunload', function () {
     let liList = todoList.children;
     for (let i = 0; i < liList.length; i++)
     {
-        dataSave.push({text: liList[i].dataset.text, check: chkList[i].checked});
+        dataSave.push({text: liList[i].dataset.text, 
+                      check: chkList[i].checked});
     }
     let stringArr = JSON.stringify(dataSave);
     localStorage.setItem('todo', stringArr);
@@ -143,6 +146,7 @@ function getTodo() {
     let dataSave = JSON.parse(localStorage.getItem('todo'));
     if (dataSave.length > 0)
     {
+        console.log(todoList.firstElementChild);
         todoList.firstElementChild.remove();
         for (let i = 0; i < dataSave.length; i++)
         {
